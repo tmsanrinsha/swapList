@@ -28,7 +28,7 @@ foreach (array('ask', 'bid') as $orderType) {
     });
 }
 
-// 各スプレットの値を取得
+// 各スプレッドの値を取得
 $crawler = $client->request('GET', "http://fx.hikaku-memo.com/spread/");
 $spreads = array();
 $currencyPairs = array();
@@ -41,7 +41,7 @@ $crawler->filter('#main > table tbody tr')->each(function($crawlerTr) use (&$spr
         if ($i === 0) {
             $trader = $crawlerTd->text();
         } elseif ($i <= 11) {
-            // スプレットの下限を取り出す
+            // スプレッドの下限を取り出す
             $spreads[$currencyPairs[$i - 1]][$trader] = current(explode('～', $crawlerTd->text()));
         }
     });
@@ -80,20 +80,20 @@ foreach ($swaps as $currencyPair => $swaps2) {
             //     continue;
             // }
 
-            list($keyCurrency, $settleCurreny) = explode('/', $currencyPair);
+            list($keyCurrency, $settleCurrency) = explode('/', $currencyPair);
 
 
             $spreadSum = $spreads[$currencyPair][$askTrader] + $spreads[$currencyPair][$bidTrader];
-            // スプレットを円単位に変換
-            if ($settleCurreny === 'JPY') {
+            // スプレッドを円単位に変換
+            if ($settleCurrency === 'JPY') {
                 $spreadSum = $spreadSum / 100;
-            } elseif ($settleCurreny === 'USD') {
+            } elseif ($settleCurrency === 'USD') {
                 $spreadSum = $spreadSum / 10000 * $rates['USD/JPY'];
             } else {
                 error_log("Rate conversion failed!");
             }
 
-            // 1万通貨のスプレット(円)を1万通貨あたりのスワップポイント(円)で割って、何日でペイできるか計算
+            // 1万通貨のスプレッド(円)を1万通貨あたりのスワップポイント(円)で割って、何日でペイできるか計算
             $payOffDays = $spreadSum * 10000 / $swapSum;
             if ($payOffDays < 120) {
                 // 100万円あたりのスワップポイント = 1通貨あたりのスワップポイント * 100万円で買える通貨数
