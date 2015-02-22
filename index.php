@@ -109,9 +109,6 @@ usort($swapTable, function($a, $b) {
 });
 
 echo "通貨ペア\t買い業者\t売り業者\t買いswap\t売りswap\t買い+売りswap\t100万・100万で両建てした時のswap\tspread分を取り戻すまでの日数\n";
-foreach ($swapTable as $raw) {
-    foreach ($raw as $col) {
-        echo "$col\t";
-    }
-    echo "\n";
+foreach ($swapTable as $row) {
+    echo implode("\t", $row) . "\n";
 }
