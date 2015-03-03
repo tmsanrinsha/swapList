@@ -49,17 +49,17 @@ $crawler->filter('#main > table tbody tr')->each(function($crawlerTr) use (&$spr
 
 // 各通貨ペアのレート(2015-02-21時点)
 $rates['JPY/JPY'] =  1;
-$rates['USD/JPY'] =  119.071;
-$rates['EUR/USD'] =  1.13791;
-$rates['GBP/USD'] =  1.53932;
-$rates['EUR/JPY'] =  135.492;
-$rates['GBP/JPY'] =  183.313;
-$rates['AUD/JPY'] =  93.39;
-$rates['NZD/JPY'] =  89.582;
-$rates['ZAR/JPY'] =  10.23;
-$rates['CHF/JPY'] =  126.823;
-$rates['CAD/JPY'] =  94.98;
-$rates['AUD/USD'] =  0.78428;
+$rates['USD/JPY'] =  119.549;
+$rates['EUR/USD'] =  1.11909;
+$rates['GBP/USD'] =  1.53784;
+$rates['EUR/JPY'] =  133.792;
+$rates['GBP/JPY'] =  183.838;
+$rates['AUD/JPY'] =  93.668;
+$rates['NZD/JPY'] =  90.337;
+$rates['ZAR/JPY'] =  10.157;
+$rates['CHF/JPY'] =  10.157;
+$rates['CAD/JPY'] =  96.077;
+$rates['AUD/USD'] =  0.78365;
 
 foreach ($swaps as $currencyPair => $swaps2) {
     foreach ($swaps2['ask'] as $askTrader => $askSwap) {
@@ -75,10 +75,11 @@ foreach ($swaps as $currencyPair => $swaps2) {
                 continue;
             }
 
-            // GFTの値は怪しい
-            // if ($askTrader === 'GFT' || $bidTrader === 'GFT') {
-            //     continue;
-            // }
+            // GFTはサービス終了
+            // http://fx.hikaku-memo.com/detail/17/
+            if ($askTrader === 'GFT' || $bidTrader === 'GFT') {
+                continue;
+            }
 
             list($keyCurrency, $settleCurrency) = explode('/', $currencyPair);
 
