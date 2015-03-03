@@ -57,7 +57,7 @@ $rates['GBP/JPY'] =  183.838;
 $rates['AUD/JPY'] =  93.668;
 $rates['NZD/JPY'] =  90.337;
 $rates['ZAR/JPY'] =  10.157;
-$rates['CHF/JPY'] =  10.157;
+$rates['CHF/JPY'] =  124.653;
 $rates['CAD/JPY'] =  96.077;
 $rates['AUD/USD'] =  0.78365;
 
