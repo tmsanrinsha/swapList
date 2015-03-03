@@ -47,7 +47,7 @@ $crawler->filter('#main > table tbody tr')->each(function($crawlerTr) use (&$spr
     });
 });
 
-// 各通貨ペアのレート(2015-02-21時点)
+// 各通貨ペアのレート(2015-03-04時点)
 $rates['JPY/JPY'] =  1;
 $rates['USD/JPY'] =  119.549;
 $rates['EUR/USD'] =  1.11909;
