@@ -49,17 +49,17 @@ $crawler->filter('#main > table tbody tr')->each(function($crawlerTr) use (&$spr
 
 // 各通貨ペアのレート(2015-03-04時点)
 $rates['JPY/JPY'] =  1;
-$rates['USD/JPY'] =  119.549;
-$rates['EUR/USD'] =  1.11909;
-$rates['GBP/USD'] =  1.53784;
-$rates['EUR/JPY'] =  133.792;
-$rates['GBP/JPY'] =  183.838;
-$rates['AUD/JPY'] =  93.668;
-$rates['NZD/JPY'] =  90.337;
-$rates['ZAR/JPY'] =  10.157;
-$rates['CHF/JPY'] =  124.653;
-$rates['CAD/JPY'] =  96.077;
-$rates['AUD/USD'] =  0.78365;
+$rates['USD/JPY'] =  120.139;
+$rates['EUR/USD'] =  1.08222;
+$rates['GBP/USD'] =  1.49505;
+$rates['EUR/JPY'] =  130.01;
+$rates['GBP/JPY'] =  179.615;
+$rates['AUD/JPY'] =  93.386;
+$rates['NZD/JPY'] =  90.82;
+$rates['ZAR/JPY'] =  9.965;
+$rates['CHF/JPY'] =  123.131;
+$rates['CAD/JPY'] =  95.609;
+$rates['AUD/USD'] =  0.77731;
 
 foreach ($swaps as $currencyPair => $swaps2) {
     foreach ($swaps2['ask'] as $askTrader => $askSwap) {
